@@ -242,7 +242,7 @@ $slm_emails_tbl = "CREATE TABLE IF NOT EXISTS " . $lic_emails_table . " (
 dbDelta($slm_emails_tbl);
 
 // Create log table if not exists
-$log_tbl_sql = "CREATE TABLE IF NOT EXISTS" . $lic_log_tbl . " (
+$log_tbl_sql = "CREATE TABLE IF NOT EXISTS " . $lic_log_tbl . " (
     id INT NOT NULL AUTO_INCREMENT,
     license_key VARCHAR(255) NOT NULL,
     slm_action VARCHAR(255) NOT NULL,
