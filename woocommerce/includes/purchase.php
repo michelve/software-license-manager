@@ -86,7 +86,7 @@ function wc_slm_renew_license($order) {
 
     // Calculate the new expiration date
     $current_expiry_date = $license_data['date_expiry'];
-    $new_expiration_date = date(
+    $new_expiration_date = wp_date(
         'Y-m-d',
         strtotime($current_expiry_date . ' +' . $license_data['slm_billing_length'] . ' ' . $license_data['slm_billing_interval'])
     );
@@ -222,8 +222,8 @@ function wc_slm_create_new_license($order) {
 
         // Calculate expiration date
         $expiration_date = ($custom_fields['slm_billing_interval'] === 'onetime')
-            ? date('Y-m-d', strtotime('+200 years'))
-            : date('Y-m-d', strtotime('+' . $custom_fields['slm_billing_length'] . ' ' . $custom_fields['slm_billing_interval']));
+            ? wp_date('Y-m-d', strtotime('+200 years'))
+            : wp_date('Y-m-d', strtotime('+' . $custom_fields['slm_billing_length'] . ' ' . $custom_fields['slm_billing_interval']));
 
         // Generate a new license key
         $new_license_key = slm_get_license(get_option('slm_license_prefix', 'SLM'));
