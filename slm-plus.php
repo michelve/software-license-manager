@@ -26,7 +26,7 @@ if (!defined('ABSPATH')) {
 function slmplus_load_textdomain() {
     load_plugin_textdomain('slm-plus', false, dirname(plugin_basename(__FILE__)) . '/i18n/languages');
 }
-add_action('plugins_loaded', 'slmplus_load_textdomain');
+add_action('init', 'slmplus_load_textdomain');
 
 // Global variables for database interaction
 global $wpdb, $slm_debug_logger;
